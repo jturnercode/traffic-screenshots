@@ -1,6 +1,7 @@
 # all items in <> are variables that need to be determined
 
-chromedriver = '<./WEBDRIVER/PATH>'
+chromedriver = '<./PATH/WEBDRIVER>'
+img_dir = '<./PATH/DIRNAME>'
 
 [[locations]]
 name = '<LOC1>'

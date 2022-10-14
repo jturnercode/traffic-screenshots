@@ -1,3 +1,4 @@
+from datetime import datetime
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from config_mod import config as cfg
@@ -16,11 +17,15 @@ driver.implicitly_wait(10)
 
 # get locations set in .toml file
 locations: list[dict] = cfg["locations"]
+img_dir: str = cfg["img_dir"]
+
+# datetime used to name .png file
+dtime = datetime.now().strftime(r"%y%m%d_%H%M")
 
 # iterate over locations and take snapshots
 for location in locations:
     driver.set_window_size(**location["window"])
     driver.get(location["url"])
-    driver.save_screenshot(f'{location["name"]}.png')
+    driver.save_screenshot(f'{img_dir}/{dtime}_{location["name"]}.png')
 
 driver.close()
