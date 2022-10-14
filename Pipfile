@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 selenium = "*"
+tomli = "*"
 
 [dev-packages]
 black = "*"

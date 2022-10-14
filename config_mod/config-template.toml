@@ -1,0 +1,16 @@
+# all items in <> are variables that need to be determined
+
+chromedriver = '<./WEBDRIVER/PATH>'
+
+[[locations]]
+name = '<LOC1>'
+url = 'https://www.google.com/maps/@<LATITUDE>,<LONGITUDE>,<ZOOM>z/data=!5m1!1e1'
+window.width = 1024
+window.height = 720
+
+
+[[locations]]
+name = '<LOC2>'
+url = 'https://www.google.com/maps/@<LATITUDE>,<LONGITUDE>,<ZOOM>z/data=!5m1!1e1'
+window.width = 1024
+window.height = 720

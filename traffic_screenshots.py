@@ -1,29 +1,26 @@
-from time import sleep
-from os import getenv
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
-
+from config_mod import config as cfg
 
 # setup webdriver
 options = webdriver.ChromeOptions()
 options.add_argument("headless")
 
-# uses set screen resolution on the machine if headless is off
-# options.add_argument("--window-size=1920x1080")
-options.add_argument("--window-size=800x600")
+# for testing, do not use w/headless mode
+# options.add_argument("--window-size=1024x720")
+# options.add_argument("--start-maximized")
 
-# options.add_argument("--start-maximized")  # Do NOT USE IN HEADLESS MODE
-driver = webdriver.Chrome(options=options, service=Service(getenv("CHROMEDRIVER")))
+# create driver instance
+driver = webdriver.Chrome(options=options, service=Service(cfg["chromedriver"]))
+driver.implicitly_wait(10)
 
-driver.implicitly_wait(8)
+# get locations set in .toml file
+locations: list[dict] = cfg["locations"]
 
-# Brazos Event area
-driver.get(getenv("BRAZOS_URL"))
-driver.save_screenshot("Brazos.png")
+# iterate over locations and take snapshots
+for location in locations:
+    driver.set_window_size(**location["window"])
+    driver.get(location["url"])
+    driver.save_screenshot(f'{location["name"]}.png')
 
-# 99/59
-driver.get(getenv("99_URL"))
-driver.save_screenshot("9959.png")
-
-# sleep(8)
 driver.close()
