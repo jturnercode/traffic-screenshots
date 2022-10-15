@@ -28,4 +28,7 @@ for location in locations:
     driver.get(location["url"])
     driver.save_screenshot(f'{img_dir}/{dtime}_{location["name"]}.png')
 
-driver.close()
+# driver.close() is only for browser windows
+# driver quit() should be used when done to properly
+#  terminate all processes
+driver.quit()
