@@ -18,6 +18,7 @@ __pycache__/
 env.js
 Pipfile.lock
 *.toml
+*.bat
 !config-template.toml
 
 #DB
