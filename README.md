@@ -9,13 +9,15 @@ Quick script to capture google traffic screenshots for events or projects. The s
 - selenium
 - chromedriver
 - tomli
+- Pillow
 
 
 # .toml template
- `config-template.toml` needs to be renamed to `config.toml`. Set the script location parameters to capture. Parameters are pretty self explanatory.
+ `config-template.toml` needs to be renamed to `config.toml`. 
+ `config.toml` must be configured to locations to be captured, location to store images, and file location of webdriver. Parameters are pretty self explanatory.
 
 # Todo
-- Automatically note date and time on the image before saving.
+- Make text larger
 
 
 
